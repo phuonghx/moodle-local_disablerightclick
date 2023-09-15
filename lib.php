@@ -15,18 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Plugin version details
+ * Lib functions
  *
- * @package     local_disablerightclick
- * @copyright   2020 Yogesh Shirsath <yogshirsath@hotmail.com>
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @author      Yogesh Shirsath
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ * @package   moodle-local_disablerightclick
+ * @copyright 13/09/2023 LdesignMedia.nl - Luuk Verhoeven
+ * @author    Vincent Cornelis
+ **/
+
+/**
+ * Execute before http headers
+ *
+ * @return void
  */
+function local_disablerightclick_before_http_headers(): void {
+    global $PAGE;
 
-defined('MOODLE_INTERNAL') || die();
-
-$plugin->component = 'local_disablerightclick';
-$plugin->release = '1.2.0';
-$plugin->version  = 2023091500;
-$plugin->requires = 2017051500;
-$plugin->maturity = MATURITY_STABLE;
+    $PAGE->requires->js_call_amd('local_disablerightclick/initializer');
+}

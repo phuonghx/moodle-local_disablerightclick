@@ -28,12 +28,14 @@ namespace local_disablerightclick\external;
 
 defined('MOODLE_INTERNAL') || die();
 
-use stdClass;
+global $CFG;
+
+require_once($CFG->libdir . '/externallib.php');
+
 use external_api;
 use external_value;
-use context_system;
 use external_function_parameters;
-use local_disablerightclick\controller as controller;
+use local_disablerightclick\controller;
 
 /**
  * All external services functions are defined in api class.

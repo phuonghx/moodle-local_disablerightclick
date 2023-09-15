@@ -66,8 +66,9 @@ class controller {
         return false;
     }
 
+    // TODO: Disable this all together (Hamza).
     /**
-     * Check whther to show support message
+     * Check whether to show support message
      *
      * @return bool True if to show support message
      */

@@ -57,7 +57,7 @@ define([
             // Store whole head.
             var wholehead = null;
 
-            // Promisses
+            // Promisses.
             var PROMISSES = {
                 SETTINGS: function(contextid) {
                     return Ajax.call([{
