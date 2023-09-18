@@ -17,7 +17,6 @@
  * Javascript controller for disabling features like right click
  *
  * @module     local_disablerightclick/disabler
- * @package    local_disablerightclick
  * @copyright  2019 Yogesh Shirsath <yogshirsath@hotmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @since      1.0
