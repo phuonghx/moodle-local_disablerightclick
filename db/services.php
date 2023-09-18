@@ -26,6 +26,7 @@
 use local_disablerightclick\external\api;
 
 defined('MOODLE_INTERNAL') || die();
+
 $functions = [
     'local_disablerightclick_settings' => [
         'classname' => api::class,
@@ -44,5 +45,5 @@ $functions = [
         'type' => 'read',
         'loginrequired' => true,
         'ajax' => true,
-    ]
+    ],
 ];
