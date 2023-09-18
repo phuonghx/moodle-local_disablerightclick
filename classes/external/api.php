@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Api services code
+ * Api services.
  *
  * @package     local_disablerightclick
  * @copyright   2020 Yogesh Shirsath <yogshirsath@hotmail.com>

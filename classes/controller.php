@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Controller code
+ * Controller class.
  *
  * @package     local_disablerightclick
  * @copyright   2020 Yogesh Shirsath <yogshirsath@hotmail.com>
@@ -37,7 +37,7 @@ use context_course;
 class controller {
 
     /**
-     * Check if current user is admin or manager of site
+     * Check if current user is admin or manager of site.
      *
      * @param integer $contextid Context id of course
      *
@@ -45,8 +45,9 @@ class controller {
      */
     public function is_allowed(int $contextid = 0): bool {
         global $USER, $DB, $COURSE;
-        return false;
+
         if ($contextid === 0 || !$DB->record_exists('context', ['id' => $contextid])) {
+
             $context = context_course::instance($COURSE->id);
         } else {
             $context = context::instance_by_id($contextid);
