@@ -37,13 +37,4 @@ $functions = [
         'loginrequired' => false,
         'ajax' => true,
     ],
-    'local_disablerightclick_support' => [
-        'classname' => api::class,
-        'methodname' => 'support',
-        'classpath' => '',
-        'description' => 'Show support modal',
-        'type' => 'read',
-        'loginrequired' => true,
-        'ajax' => true,
-    ],
 ];

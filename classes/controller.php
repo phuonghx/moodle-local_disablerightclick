@@ -45,7 +45,7 @@ class controller {
      */
     public function is_allowed(int $contextid = 0): bool {
         global $USER, $DB, $COURSE;
-
+        return false;
         if ($contextid === 0 || !$DB->record_exists('context', ['id' => $contextid])) {
             $context = context_course::instance($COURSE->id);
         } else {
@@ -65,37 +65,6 @@ class controller {
         }
 
         return false;
-    }
-
-    // TODO: Disable this all together (Hamza).
-    /**
-     * Check whether to show support message
-     *
-     * @return bool True if to show support message
-     */
-    public function show_support(): bool {
-        $show = get_config('local_disablerightclick', 'showsupport');
-        if ($show === 'never' || !is_siteadmin()) {
-            return false;
-        }
-
-        return $show === false || $show < time();
-    }
-
-    /**
-     * Apply click action of admin
-     *
-     * @param mixed $action Action performed by admin
-     *
-     * @return Bool
-     */
-    public function support_action($action): bool {
-        if ($action === 'later') {
-            $action = time() + 604800;
-        }
-        set_config('showsupport', $action, 'local_disablerightclick');
-
-        return true;
     }
 
 }

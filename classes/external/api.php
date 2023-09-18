@@ -68,7 +68,6 @@ class api extends external_api {
         $stringmanager = get_string_manager();
         $controller = new controller();
         $data = [
-            'showsupport' => $controller->show_support(),
             'strings' => $stringmanager->load_component_strings('local_disablerightclick', current_language()),
             'settings' => [],
         ];
@@ -87,38 +86,4 @@ class api extends external_api {
     public static function settings_returns(): external_value {
         return new external_value(PARAM_RAW, 'Settings');
     }
-
-    /**
-     * Describes the parameters for settings.
-     *
-     * @return external_function_parameters
-     */
-    public static function support_parameters(): external_function_parameters {
-        return new external_function_parameters(
-            [
-                'action' => new external_value(PARAM_ALPHA, 'Action to perform with support modal'),
-            ]
-        );
-    }
-
-    /**
-     * Get settings.
-     *
-     * @param integer $action Action to apply on support modal
-     *
-     * @return String          JSON encoded settings
-     */
-    public static function support(int $action): string {
-        return (new controller())->support_action($action);
-    }
-
-    /**
-     * Returns description of method parameters for support action.
-     *
-     * @return external_value
-     */
-    public static function support_returns(): external_value {
-        return new external_value(PARAM_RAW, 'Support action status');
-    }
-
 }

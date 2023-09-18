@@ -26,16 +26,12 @@ define([
     'jquery',
     'core/ajax',
     'core/notification',
-    'core/modal_factory',
-    'core/modal_events',
-    'core/templates',
+    'core/log',
 ], function (
     $,
     Ajax,
     Notification,
-    ModalFactory,
-    ModalEvents,
-    Templates
+    Log
 ) {
     return {
         init: function() {
@@ -65,14 +61,6 @@ define([
                             contextid: contextid
                         }
                     }])[0];
-                },
-                SUPPORT: function (action) {
-                    return Ajax.call([{
-                        methodname: "local_disablerightclick_support",
-                        args: {
-                            action: action
-                        }
-                    }])[0];
                 }
             };
 
@@ -83,11 +71,11 @@ define([
              * @param {Integer} duration Duration of toaster
              */
             function showToaster(msg, duration) {
-                if (duration == undefined) {
+                if (duration === undefined) {
                     duration = 2000;
                 }
-                var toast = $("<div class='disabler-toaster toaster-container'>" +
-                    "<lable class='toaster-message'>" + msg + "</lable>" +
+                let toast = $("<div class='disabler-toaster toaster-container'>" +
+                    "<lable class='toaster-message'>" + msg + " </lable>" +
                     "</div>");
                 $('html').append(toast);
                 $(toast).addClass('show');
@@ -108,7 +96,7 @@ define([
              * @param  {Boolean} isOpen true if tools is open
              */
             function devToolsToggled(isOpen) {
-                if (isOpen == true) {
+                if (isOpen === true) {
                     // eslint-disable-next-line no-console
                     console.clear();
                     wholebody = $('body').detach();
@@ -231,6 +219,7 @@ define([
              */
             function disabler(root, settings) {
 
+                Log.log('disabler 1.0v');
                 // Skip if no need to disable.
                 if (settings.length == 0) {
                     return;
@@ -291,32 +280,8 @@ define([
                 }
             }
 
-            /**
-             * Check whether to show support modal or not. If yes then show.
-             * @param  {Boolean} showsupport True to show support modal
-             */
-            function support(showsupport) {
-                if (showsupport != true) {
-                    return;
-                }
-                ModalFactory.create({
-                    type: ModalFactory.types.DEFAULT,
-                    title: strings['supporttitle'],
-                    body: Templates.render('local_disablerightclick/support_modal', {})
-                }, $('#create-modal'))
-                    .done(function (modal) {
-                        modal.getRoot();
-                        modal.show();
-                        $('body').on('click', '[data-action-disablerightclick]', function () {
-                            PROMISSES.SUPPORT($(this).data('value'));
-                            modal.destroy();
-                        });
-                    })
-                    .fail(Notification.exception);
-            }
-
             $(document).ready(function() {
-                var contextid = 0;
+                let contextid = 0;
                 if (M.cfg.contextid != undefined) {
                     contextid = M.cfg.contextid;
                 }
@@ -324,7 +289,7 @@ define([
                     var data = JSON.parse(response);
                     strings = data.strings;
                     disabler($('body'), data.settings);
-                    support(data.showsupport, data.context);
+
                     setInterval(function () {
                         if ($('iframe').length === 0) {
                             return;
