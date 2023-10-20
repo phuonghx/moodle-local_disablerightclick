@@ -23,19 +23,8 @@
     background-color: #424242;
 }
 
-.disablerightclick-support .message {
-    margin-bottom: 2rem;
-}
-.disablerightclick-support .icon {
-    width: 50px;
-    height: 50px;
-}
-.disablerightclick-support .buttons-list {
-    margin-top: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-left: auto;
-}
-.disablerightclick-support .center {
-    text-align: center;
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }

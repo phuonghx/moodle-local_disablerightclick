@@ -27,15 +27,12 @@ $string['pluginname'] = 'Disable Right Click';
 $string['disablerightclickdesc'] = 'Right click(Context Menu) will be disabled throughout the site(Except Admin and Manager).';
 $string['disablecutcopypaste'] = 'Disable Cut, Copy and Paste';
 $string['disablecutcopypastedesc'] = 'Cut, Copy and Paste will be disabled throughout the site(Except Admin and Manager).';
+$string['disableselection'] = 'Disable mouse selection';
+$string['disableselectiondesc'] = 'Mouse selection will be disabled throughout the site(Except Admin and Manager).';
 $string['disabledevelopertools'] = 'Disable Developer tool shortcuts';
-$string['disabledevelopertoolsdesc'] = 'Developer tool shortcuts(<a target="_blank" href="https://developers.google.com/web/tools/chrome-devtools/shortcuts">Chrome shortcuts list</a>) will be disabled throughout the site(Except Admin and Manager). Note: Tools can be opened through browser settings menu. Cannot disable that.';
+$string['disabledevelopertoolsdesc'] =
+    'Developer tool shortcuts(<a target="_blank" href="https://developers.google.com/web/tools/chrome-devtools/shortcuts">Chrome shortcuts list</a>) will be disabled throughout the site(Except Admin and Manager). Note: Tools can be opened through browser settings menu. Cannot disable that.';
 $string['disablerightclick:allow'] = 'Allow all for user roles';
-$string['supporttitle'] = 'Support my work';
-$string['supportlater'] = 'Later';
-$string['supportlaterdesc'] = 'Show me after 7 days';
-$string['supportnever'] = 'Never';
-$string['supportneverdesc'] = 'Don\'t show this again';
-$string['supportmessage'] = 'If you like <strong>' . $string['pluginname'] . '</strong> plugin then please support me on';
 
 // Allowing message.
 $string['allowall'] = 'Allow all';
@@ -44,6 +41,8 @@ $string['allowrightclick'] = 'Allow right click';
 $string['allowrightclickdesc'] = 'Allow right click on above pages';
 $string['allowcutcopypaste'] = 'Allow cut, copy and paste';
 $string['allowcutcopypastedesc'] = 'Allow cut, copy and paste on above pages';
+$string['allowselection'] = 'Allow mouse selection';
+$string['allowselectiondesc'] = 'Allow mouse selection on above pages';
 $string['allowdevelopertools'] = 'Allow developer tools';
 $string['allowdevelopertoolsdesc'] = 'Allow developer tools on above pages';
 
@@ -52,3 +51,4 @@ $string['rightclick'] = 'Right click is disabled on this site.';
 $string['cutcopypaste'] = 'Cut, Copy and Paste is disabled on this site.';
 $string['developertools'] = 'Developer tools are disabled on this site.';
 $string['developertoolsopened'] = 'Please close developer tool to see page.';
+$string['mouseselection'] = 'Mouse selection is not allowed on this page.';

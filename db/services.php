@@ -23,10 +23,13 @@
  * @author      Yogesh Shirsath
  */
 
+use local_disablerightclick\external\api;
+
 defined('MOODLE_INTERNAL') || die();
+
 $functions = [
     'local_disablerightclick_settings' => [
-        'classname' => 'local_disablerightclick\external\api',
+        'classname' => api::class,
         'methodname' => 'settings',
         'classpath' => '',
         'description' => 'Get settings',
@@ -34,13 +37,4 @@ $functions = [
         'loginrequired' => false,
         'ajax' => true,
     ],
-    'local_disablerightclick_support' => [
-        'classname' => 'local_disablerightclick\external\api',
-        'methodname' => 'support',
-        'classpath' => '',
-        'description' => 'Show support modal',
-        'type' => 'read',
-        'loginrequired' => true,
-        'ajax' => true,
-    ]
 ];
